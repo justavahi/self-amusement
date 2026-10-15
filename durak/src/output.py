@@ -1,8 +1,11 @@
-from config import SEPARATOR_SYM, SEPARATOR_LENGTH
+from config import SEPARATOR_SYM, SEPARATOR_LENGTH, EMPTY_OUTPUT
 
-def print_card(card, sep='\n'):
-    val, suit = card
-    print(f"{val}{suit}", end=sep)
+def print_card(card, sep='\n', empty=EMPTY_OUTPUT):
+    if card:
+        val, suit = card
+        print(f"{val}{suit}", end=sep)
+    else:
+        print(empty, end=sep)
 
 def print_deck(deck, sep='\n', greeting='\n'):
     print(greeting, end='')

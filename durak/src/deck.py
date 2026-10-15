@@ -78,7 +78,7 @@ def calc_card_val(card, supsuit, bonus=SUPERIOR_SUIT_BONUS):
     return res
 
 # O(nlogn)
-def sort_deck(deck, supsuit):
+def sort_deck(deck, supsuit, is_reverse=False):
     suits = [v.value for v in suits_elmts] 
     for i in range(len(suits)):
         if suits[i] == supsuit:
@@ -96,7 +96,7 @@ def sort_deck(deck, supsuit):
             if s == suit:
                 card = (deck[i], calc_card_val(deck[i], supsuit)) 
                 cards_of_one_suit.append(card)
-        cards_of_one_suit.sort(key=lambda x: x[1])
+        cards_of_one_suit.sort(key=lambda x: x[1], reverse=is_reverse)
 
         for card in cards_of_one_suit:
             res.append(card[0])
